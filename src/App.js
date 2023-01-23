@@ -7,8 +7,9 @@ function App() {
 return (
   <div>
       <main>
-        <Thought></Thought>
         <Nav></Nav>
+        <Thought></Thought>
+        
       </main>
     </div>
   );
