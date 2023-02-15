@@ -1,25 +1,52 @@
 import React from "react";
 const tabs = ['Home', 'Thoughts', 'Contact'];
 
-function Nav (props) {
+function Nav () {
+  const attractions = [
+    {
+      name: "landscape",
+      description: "Fields, Waterfalls, Beauty of nature"
+    },
+    {
+      name: "trekking",
+      description: "Mountains, Forest area"
+    },
+
+  ];
+  function attractionsSelected(name) {
+    //console.log("Hello");
+    console.log(`${name} clicked`)
+  }
     return (
-      <ul className="nav nav-tabs">
-      {tabs.map(tab => (
-        <li className={
-          props.currentPage ===tab ?"nav-item is-active" : "nav-item"
-         } key={tab}>
-          <a
-            href={'#' + tab.toLowerCase()}
-            onClick={() => props.handlePageChange(tab)}
-            className={
-              props.currentPage === tab ? 'nav-link active' : 'nav-link'
-            }
-          >
-            {tab}
+      <header>
+        <h2>
+          <a href="/">
+            <span> Here you go !</span>
           </a>
-        </li>
-      ))}
-    </ul>
+        </h2>
+        <nav>
+          <ul className="flex-row">
+            <li className="mx-2">
+              <a href="#about">
+                About me
+              </a>
+            </li>
+            <li>
+            <span>Contact</span>
+            </li>
+            {attractions.map((attraction) => (
+            <li
+              className="mx-1"
+                key={attraction.name}
+            >
+              <span onClick={ () => attractionsSelected(attraction.name)}>
+                {attraction.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      </header>
     )
 }
 
